@@ -1,8 +1,13 @@
 package ru.nikita.samsung.hw17;
 
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 
 public class Circle2D {
+
+    private final Paint paint = new Paint();
+
     float x;
     float y;
 
@@ -32,7 +37,17 @@ public class Circle2D {
         this.color = Color.BLUE;
     }
 
-    public void Draw(){
-        //TODO: реализовать отрисовку круга
+    public void Draw(Canvas canvas){
+        canvas.drawCircle(x,y, radius, paint);
+    }
+
+    public void SetColor(int _color){
+        color = _color;
+        paint.setColor(_color);
+    }
+
+    public void Move(){
+        x+=dX;
+        y+=dY;
     }
 }
